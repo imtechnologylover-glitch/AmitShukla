@@ -444,7 +444,7 @@ footer {
     <!-- Contact -->
     <section id="contact" class="container">
         <h2>Get Your Free Quote</h2>
-        <form class="contact-form" onsubmit="sendTowhatsapp(event)">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
             <div class="form-group">
                 <input type="text" placeholder="Full Name" required>
             </div>
@@ -586,6 +586,36 @@ Five stars!
 </div>
 
 </section>
+<script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you! We will contact you within 24 hours with your personalized quote.');
+            event.target.reset();
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+               
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+              
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -613,32 +643,5 @@ Five stars!
             <p>&copy; 2026 LIC Agency. All rights reserved. | LIC of India</p>
         </div>
     </footer>
-
-    <script>
-        <script>
-function sendToWhatsApp(e){
-    e.preventDefault();
-
-    let name = document.querySelector('input[type="text"]').value;
-    let phone = document.querySelector('input[type="tel"]').value;
-    let email = document.querySelector('input[type="email"]').value;
-    let message = document.querySelector('textarea').value;
-
-    let url = "https://wa.me/919415556995?text="
-    + "Name: " + name + "%0a"
-    + "Phone: " + phone + "%0a"
-    + "Email: " + email + "%0a"
-    + "Message: " + message;
-
-    // 👉 WhatsApp open
-    window.open(url, "_blank");
-
-    // 👉 Thank You message
-    alert("Thank you! We will contact you soon 😊");
-
-    // 👉 Form reset
-    e.target.reset();
-}
-</script>
 </body>
 </html>
