@@ -587,11 +587,40 @@ Five stars!
 
 </section>
 <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you! We will contact you within 24 hours with your personalized quote.');
-            event.target.reset();
-        }
+
+function handleSubmit(event) {
+
+event.preventDefault();
+
+let name = document.querySelector('input[type="text"]').value;
+let phone = document.querySelector('input[type="tel"]').value;
+let email = document.querySelector('input[type="email"]').value;
+let plan = document.querySelector('select').value;
+let message = document.querySelector('textarea').value;
+
+let whatsappMessage =
+`New LIC Inquiry
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Plan: ${plan}
+
+Message:
+${message}`;
+
+let whatsappURL =
+"https://wa.me/919415556995?text=" + encodeURIComponent(whatsappMessage);
+
+window.open(whatsappURL, "_blank");
+
+alert("Thank You! Your message is being sent to WhatsApp.");
+
+event.target.reset();
+}
+
+</script>
+<script>
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
