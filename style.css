@@ -74,3 +74,16 @@ cursor:pointer;
 transform:scale(1.05);
 box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
+.lic-header-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#currentTime {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
